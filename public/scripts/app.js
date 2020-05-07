@@ -3,9 +3,16 @@
 console.log('app.js is running');
 //jsx javascript XML 
 var user = {
-    name1: 'Sajana',
-    name2: 'vijayan'
+    name1: 'Sajana'
+
 };
+function getName(name) {
+    if (name) {
+        return name;
+    } else {
+        return 'Unknown';
+    }
+}
 var template = React.createElement(
     'div',
     null,
@@ -25,12 +32,12 @@ var template = React.createElement(
         React.createElement(
             'li',
             null,
-            user.name1
+            getName(user.name1)
         ),
         React.createElement(
             'li',
             null,
-            user.name2
+            getName(user.name2)
         )
     )
 );

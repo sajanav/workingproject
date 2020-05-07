@@ -1,18 +1,25 @@
 console.log('app.js is running');
 //jsx javascript XML 
 var user={
-    name1:'Sajana',
-    name2:'vijayan'
+    name1:'Sajana'
+    
 };
+function getName(name){
+    if(name){
+  return  name ;
+    }else{
+        return 'Unknown';
+    }
+}
 var template=(<div>
     <h1>My First App</h1>
     <p>This is some info</p>
     <ol>
         <li>
-        {user.name1}
+        {getName(user.name1)}
         </li>
         <li>
-        {user.name2}
+        {getName(user.name2)}
         </li>
     </ol>
     </div>
