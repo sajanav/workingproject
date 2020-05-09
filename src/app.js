@@ -19,11 +19,20 @@ var template=(<div>
         {getName(user.name1)}
         </li>
         <li>
-        {getName(user.name2)}
+        {user.name2 ? user.name2 :'unknown123'}
         </li>
     </ol>
     </div>
     );
 //var template = /*#__PURE__*/React.createElement("p", null, "this is JSX from app.js");
+let count=0;
+const templateTwo = (
+<div>
+<h1>Count:{count}</h1>
+<button id="butt" className="buttonclass">+1</button>
+</div>
+);
+
+
 var appRoot=document.getElementById('app');
-ReactDOM.render(template,appRoot);
+ReactDOM.render(templateTwo,appRoot);

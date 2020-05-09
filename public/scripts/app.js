@@ -37,10 +37,27 @@ var template = React.createElement(
         React.createElement(
             'li',
             null,
-            getName(user.name2)
+            user.name2 ? user.name2 : 'unknown123'
         )
     )
 );
 //var template = /*#__PURE__*/React.createElement("p", null, "this is JSX from app.js");
+var count = 0;
+var templateTwo = React.createElement(
+    'div',
+    null,
+    React.createElement(
+        'h1',
+        null,
+        'Count:',
+        count
+    ),
+    React.createElement(
+        'button',
+        { id: 'butt', className: 'buttonclass' },
+        '+1'
+    )
+);
+
 var appRoot = document.getElementById('app');
-ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRoot);
