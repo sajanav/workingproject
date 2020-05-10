@@ -43,21 +43,31 @@ var template = React.createElement(
 );
 //var template = /*#__PURE__*/React.createElement("p", null, "this is JSX from app.js");
 var count = 0;
-var templateTwo = React.createElement(
-    'div',
-    null,
-    React.createElement(
-        'h1',
-        null,
-        'Count:',
-        count
-    ),
-    React.createElement(
-        'button',
-        { id: 'butt', className: 'buttonclass' },
-        '+1'
-    )
-);
+var addOne = function addOne() {
+    count++;
+
+    console.log("Add one", count);
+    renderApp();
+};
 
 var appRoot = document.getElementById('app');
-ReactDOM.render(templateTwo, appRoot);
+var renderApp = function renderApp() {
+    var templateTwo = React.createElement(
+        'div',
+        null,
+        React.createElement(
+            'h1',
+            null,
+            'Count:',
+            count
+        ),
+        React.createElement(
+            'button',
+            { onClick: addOne },
+            '+1'
+        )
+    );
+    ReactDOM.render(templateTwo, appRoot);
+};
+//ReactDOM.render(templateTwo,appRoot);
+renderApp();
