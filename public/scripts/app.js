@@ -1,73 +1,47 @@
-'use strict';
+"use strict";
 
 console.log('app.js is running');
-//jsx javascript XML 
-var user = {
-    name1: 'Sajana'
+var details = "";
+var buttonValueStr = "Show Details";
+var appRoot = document.getElementById('app');
 
-};
-function getName(name) {
-    if (name) {
-        return name;
+var buttonValue = function buttonValue() {
+
+    console.log('button is clicked with buttonvaluestrg', buttonValueStr);
+    if (buttonValueStr == "Show Details") {
+        details = "Here are the details";
+        buttonValueStr = "Hide details";
     } else {
-        return 'Unknown';
+        details = "";
+        buttonValueStr = "Show Details";
     }
-}
-var template = React.createElement(
-    'div',
-    null,
-    React.createElement(
-        'h1',
-        null,
-        'My First App'
-    ),
-    React.createElement(
-        'p',
-        null,
-        'This is some info'
-    ),
-    React.createElement(
-        'ol',
-        null,
-        React.createElement(
-            'li',
-            null,
-            getName(user.name1)
-        ),
-        React.createElement(
-            'li',
-            null,
-            user.name2 ? user.name2 : 'unknown123'
-        )
-    )
-);
-//var template = /*#__PURE__*/React.createElement("p", null, "this is JSX from app.js");
-var count = 0;
-var addOne = function addOne() {
-    count++;
-
-    console.log("Add one", count);
     renderApp();
 };
-
-var appRoot = document.getElementById('app');
 var renderApp = function renderApp() {
-    var templateTwo = React.createElement(
-        'div',
+    var template = React.createElement(
+        "div",
         null,
         React.createElement(
-            'h1',
+            "title",
             null,
-            'Count:',
-            count
+            "Indecision App"
         ),
         React.createElement(
-            'button',
-            { onClick: addOne },
-            '+1'
+            "h1",
+            null,
+            "Visibility Toggle"
+        ),
+        React.createElement(
+            "button",
+            { onClick: buttonValue },
+            buttonValueStr
+        ),
+        React.createElement(
+            "p",
+            null,
+            details
         )
     );
-    ReactDOM.render(templateTwo, appRoot);
+    ReactDOM.render(template, appRoot);
 };
-//ReactDOM.render(templateTwo,appRoot);
 renderApp();

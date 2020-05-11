@@ -11,39 +11,52 @@ function getName(name){
         return 'Unknown';
     }
 }
+const numbers= [99,98,97];
+const onMakeDecision =() =>{
+    const randomNo=Math.floor(Math.random()*1);
+  //  randomNo=randomNo+1;
+    console.log(randomNo);
+    if(randomNo !=0){
+    const option =app.options[randomNo];
+    alert(option);
+    }
+};
+const onFormSubmit=(e)=>{
+e.preventDefault();
+const option =e.target.elements.option.value;
+
+console.log("form is submitted",option);
+};
 var template=(<div>
     <h1>My First App</h1>
     <p>This is some info</p>
+             
+    {
+       [ <p key='1'> a</p>,<p key='2'>b</p>,<p key='3'> c</p>]
+        
+        }
+        {
+            /*numbers.map((number)=>{
+            return <p key={number}>Number:{number}</p>;
+            }
+
+            )*/
+        }
     <ol>
-        <li>
-        {getName(user.name1)}
-        </li>
-        <li>
-        {user.name2 ? user.name2 :'unknown123'}
-        </li>
+      {
+         numbers.map((number)=>{
+          return <li key={number}>{number}</li>
+          })
+      } 
     </ol>
+    <form onSubmit={onFormSubmit}>
+        <input type="text" name ="option"></input>
+        <button>Add Option</button>
+        <button disabled ={true}onClick={onMakeDecision}>What should i do </button>
+
+          </form>
     </div>
     );
-//var template = /*#__PURE__*/React.createElement("p", null, "this is JSX from app.js");
-let count=0;
-const addOne=() => {
-count++;
-
-console.log("Add one",count);
-renderApp();
-}
-
-
 
 var appRoot=document.getElementById('app');
-const  renderApp =() =>{
-    const templateTwo = (
-        <div>
-        <h1>Count:{count}</h1>
-        <button onClick={addOne}>+1</button>
-        </div>
-        );
-        ReactDOM.render(templateTwo,appRoot);
-};
-//ReactDOM.render(templateTwo,appRoot);
-renderApp();
+    ReactDOM.render(template,appRoot);
